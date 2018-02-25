@@ -1,0 +1,24 @@
+
+
+<div class="col-md-9">
+     <h3>Danh sách sản phẩm</h3>
+            <div class="row">          
+        {{#each title}}
+               <div class="col-sm-6 col-lg-6 col-md-6">
+                    <div class="thumbnail">
+                        <img src="" alt="">
+                       <div class="caption">
+                            <h4><a href="#">Tên mặt hàng</a></h4>
+                            <li><b>Đơn giá:</b>  Giá</li>
+                            <li>{{this.textContent}}</li>
+                        </div>
+                        <p><a href="#" class="btn btn-info btn-xl" role="button">Chi tiết</a> 
+                        </p>
+                    
+                    </div>
+                </div>
+ {{/each}}    
+            </div>
+              <div class="row">
+<hr>            </div>
+ </div>
