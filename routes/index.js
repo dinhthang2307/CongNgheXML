@@ -24,13 +24,9 @@ fs.readFile('./Du_lieu.xml', 'utf-8', function (err, data) {
   }
 });
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: Mat_hang });
-});
 
 /* GET customerpage*/
-router.get('/customer', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('customer', { Ten_don_gia: Ten_don_gia});
 });
 
