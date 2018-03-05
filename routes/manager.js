@@ -3,6 +3,9 @@ var router = express.Router();
 var xmldom = require('xmldom').DOMParser;
 var fs = require('fs');
 var Mat_hang;
+var Ngay;
+var Ban_hang;
+var Tong = 0;
 var Ten_don_gia = [];
 fs.readFile('./Du_lieu.xml', 'utf-8', function (err, data) {
   if (err) {
@@ -10,6 +13,7 @@ fs.readFile('./Du_lieu.xml', 'utf-8', function (err, data) {
   }
   
   doc = new xmldom().parseFromString(data, 'application/xml');
+  Ban_hang = doc.getElementsByTagName('Ban_hang');
   Mat_hang = doc.getElementsByTagName('Mat_hang');
   for(var i = 0; i < Mat_hang.length; i++)
   {
@@ -20,10 +24,16 @@ fs.readFile('./Du_lieu.xml', 'utf-8', function (err, data) {
     }
     Ten_don_gia.push(temp);
   }
+  Ngay = (Ban_hang[0].getAttribute("Ngay"));
+  for(var i = 0; i < Ban_hang.length; i++)
+  {
+    Tong += parseInt(Ban_hang[i].getAttribute("Tien"));
+  }
+
 });
 
 /* GET customerpage*/
 router.get('/', function(req, res, next) {
-  res.render('customer', { Ten_don_gia: Ten_don_gia});
+  res.render('manager', { Ten_don_gia: Ten_don_gia, Tong: Tong, Ngay: Ngay});
 });
 module.exports = router;

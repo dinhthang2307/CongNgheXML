@@ -26,4 +26,5 @@ fs.readFile('./Du_lieu.xml', 'utf-8', function (err, data) {
 router.get('/', function(req, res, next) {
   res.render('customer', { Ten_don_gia: Ten_don_gia});
 });
+
 module.exports = router;

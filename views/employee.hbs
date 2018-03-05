@@ -1,20 +1,23 @@
 
 
 <div class="col-md-9">
-     <h3>Danh sách sản phẩm</h3>
+    <h3>Ứng dụng nhân viên</h3>
+     <h3>Tổng cộng tiền bán hàng: {{Tong}}</h3>
             <div class="row">          
-        {{#each title}}
+        {{#each Ten_don_gia}}
                <div class="col-sm-6 col-lg-6 col-md-6">
                     <div class="thumbnail">
-                        <img src="" alt="">
+                        <img src="../Media/{{this.Ma_so}}.png" alt="{{this.Ma_so}}">
                        <div class="caption">
-                            <h4><a href="#">Tên mặt hàng</a></h4>
-                            <li><b>Đơn giá:</b>  Giá</li>
-                            <li>{{this.textContent}}</li>
-                        </div>
-                        <p><a href="#" class="btn btn-info btn-xl" role="button">Chi tiết</a> 
+                            <h4><a href="#">{{this.Ten}}</a></h4>
+                            <li><b>Đơn giá:</b> {{this.Don_gia}} </li>
+                       <div class="input-group">
+  <span class="input-group-addon" id="{{this.Ma_So}}"></span>
+  <input type="text" class="form-control" placeholder="Nhập số lượng" aria-describedby="basic-addon1">
+</div><br>
+                        <p><a href="/employee/detail/{{this.Ma_So}}" class="btn btn-info btn-xl" role="button">Xác nhận</a> 
                         </p>
-                    
+                     </div>
                     </div>
                 </div>
  {{/each}}    
